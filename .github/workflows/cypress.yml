@@ -20,16 +20,16 @@ jobs:
 
     steps:
       - name: Baixar o repositório
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
       - name: Executar todos os testes Cypress
-        uses: cypress-io/github-action@v7.4.3
+        uses: cypress-io/github-action@v6
         with:
           browser: electron
 
