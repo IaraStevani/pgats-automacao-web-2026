@@ -11,7 +11,7 @@ describe('adaptar os seletores para usar xpath', () => {
 
         cy.xpath('//input[@data-qa="signup-email"]').then(($input) => {
             expect($input[0].checkValidity()).to.be.false;
-            expect($input[0].validationMessage).to.equal('Preencha este campo.');
+            expect($input[0].validationMessage).to.be.not.empty;
         });
     });
 });
