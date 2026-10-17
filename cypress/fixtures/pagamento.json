@@ -1,0 +1,9 @@
+{
+    "cartaoValido": {
+        "nome": "PGATS Aut",
+        "numero": "1234 5678 9012 3456",
+        "cvc": "123",
+        "mes": "12",
+        "ano": "2030"
+    }
+}

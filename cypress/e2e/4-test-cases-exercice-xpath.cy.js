@@ -2,7 +2,7 @@
 
 import { faker } from '@faker-js/faker';
 
-describe('Tests Cases', () => {
+describe('Tests Cases XPath', () => {
     it('CT-1: Cadastrar usuário', () => {
         const firstName = faker.person.firstName();
         const lastName = faker.person.lastName();

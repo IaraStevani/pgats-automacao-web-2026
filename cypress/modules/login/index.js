@@ -1,7 +1,8 @@
-function preencherLogin(email, senha) {
-        cy.visit('https://automationexercise.com/');
-        cy.get('a[href*=login]').click();
+function acessarPaginaDeLogin() {
+        cy.get('a[href*="login"]').click();
+    }
 
+function preencherLogin(email, senha) {
         cy.get('.login-form > h2').should('contain.text', 'Login to your account');
 
         cy.get('[data-qa="login-email"]').type(email);
@@ -27,6 +28,7 @@ function preencherLogin(email, senha) {
     }
 
     module.exports = {
+        acessarPaginaDeLogin,
         preencherLogin,
         verificarSeLoginFoiEfetuadoComSucesso,
         verificarSeMensagemDeErroFoiExibidaNoLogin
