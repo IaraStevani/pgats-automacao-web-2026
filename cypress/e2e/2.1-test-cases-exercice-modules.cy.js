@@ -6,7 +6,7 @@ const { excluirConta, verificarSeContaFoiExcluidaComSucesso } = require('../modu
 
 describe('Tests Cases', () => {
     it('CT-1: Cadastrar usuário', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
         cy.get('a[href*=login]').click();
 
         iniciarCadastro('PGATS Aut', `pgats-aut-test-${Date.now()}@mail.com`);
@@ -18,7 +18,7 @@ describe('Tests Cases', () => {
     });
 
     it('CT-2: Login do usuário com e-mail e senha corretos', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
         cy.get('a[href*=login]').click();
 
         preencherLogin('pgats-aut-test-1791051625531@mail.com', '123456');
@@ -26,7 +26,7 @@ describe('Tests Cases', () => {
     });
 
     it('CT-3: Login do usuário com e-mail e senha incorretos', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
         cy.get('a[href*=login]').click();
 
         preencherLogin('pgats-aut-test-1791051625531@mail.com', '123')
@@ -34,7 +34,7 @@ describe('Tests Cases', () => {
     });
 
     it('CT-4: Fazer logout do usuário', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
         cy.get('a[href*=login]').click();
 
         efeturarLogout();
@@ -42,7 +42,7 @@ describe('Tests Cases', () => {
     });
 
     it('CT-5: Cadastrar usuário com e-mail duplicado', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
         cy.get('a[href*=login]').click();
 
         iniciarCadastro('PGATS Aut', 'pgats-aut-test@mail.com');

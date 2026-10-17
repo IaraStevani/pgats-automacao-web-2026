@@ -22,7 +22,7 @@ describe('Tests Cases', () => {
             mobileNumber: faker.phone.number()
         };
 
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
         cy.get('a[href*=login]').click();
 
         cy.get('.signup-form > h2').should('contain.text', 'New User Signup!');
@@ -91,7 +91,7 @@ describe('Tests Cases', () => {
         // Cadastrar usuário pela API
         cy.request({
             method: 'POST',
-            url: 'https://automationexercise.com/api/createAccount',
+            url: '/api/createAccount',
             form: true,
             body: {
                 name: user.name,
@@ -118,7 +118,7 @@ describe('Tests Cases', () => {
             expect(response.responseCode).to.eq(201);
         });
 
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
         cy.get('a[href*=login]').click();
 
         cy.get('.login-form > h2').should('contain.text', 'Login to your account');
@@ -144,7 +144,7 @@ describe('Tests Cases', () => {
     });
 
     it('CT-3: Login do usuário com e-mail e senha incorretos', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
         cy.get('a[href*=login]').click();
 
         cy.get('.login-form > h2').should('contain.text', 'Login to your account');
@@ -161,7 +161,7 @@ describe('Tests Cases', () => {
     });
 
     it('CT-4: Fazer logout do usuário', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
         cy.get('a[href*=login]').click();
 
         cy.get('.login-form > h2').should('contain.text', 'Login to your account');
@@ -185,7 +185,7 @@ describe('Tests Cases', () => {
     });
 
     it('CT-5: Cadastrar usuário com e-mail duplicado', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
         cy.get('a[href*=login]').click();
 
         cy.get('.signup-form > h2').should('contain.text', 'New User Signup!');
@@ -202,7 +202,7 @@ describe('Tests Cases', () => {
     });
 
     it('CT-8: Verificar todos os produtos e a página de detalhes do produto', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
 
         cy.get('.fa-home').should('be.visible');
 
@@ -229,7 +229,7 @@ describe('Tests Cases', () => {
     });
 
     it('CT-9: Pesquisar produto', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
 
         cy.get('.fa-home').should('be.visible');
 
@@ -252,7 +252,7 @@ describe('Tests Cases', () => {
     });
 
     it('CT-10: Verificar assinatura na página inicial', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
 
         cy.get('.fa-home').should('be.visible');
 
@@ -270,7 +270,7 @@ describe('Tests Cases', () => {
     });
 
     it('CT-15: Fazer pedido: Registre-se antes de finalizar a compra', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
 
         cy.get('.fa-home').should('be.visible');
 
@@ -292,7 +292,7 @@ describe('Tests Cases', () => {
             mobileNumber: faker.phone.number()
         };
 
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
         cy.get('a[href*=login]').click();
 
         cy.get('.signup-form > h2').should('contain.text', 'New User Signup!');
@@ -391,7 +391,10 @@ describe('Tests Cases', () => {
     });
 
     it('CT-16: Fazer pedido: Faça login antes de finalizar a compra', () => {
-        cy.visit('https://automationexercise.com/');
+        const email = Cypress.env('email');
+        const senha = Cypress.env('senha');
+
+        cy.visit('/');
 
         cy.get('.fa-home').should('be.visible');
 
@@ -399,8 +402,8 @@ describe('Tests Cases', () => {
 
         cy.get('.login-form > h2').should('contain.text', 'Login to your account');
 
-        cy.get('[data-qa="login-email"]').type('pgats-aut-test-1791051625531@mail.com');
-        cy.get('[data-qa="login-password"]').type('123456');
+        cy.get('[data-qa="login-email"]').type(email);    // usando email do arquivo cypress.env.json
+        cy.get('[data-qa="login-password"]').type(senha); // usando senha do arquivo cypress.env.json
 
         cy.get('[data-qa="login-button"]').click();
 

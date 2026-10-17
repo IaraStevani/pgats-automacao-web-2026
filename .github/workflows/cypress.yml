@@ -30,6 +30,9 @@ jobs:
 
       - name: Executar todos os testes Cypress
         uses: cypress-io/github-action@v6
+        env:
+          CYPRESS_email: ${{ secrets.EMAIL }}
+          CYPRESS_senha: ${{ secrets.SENHA }}
         with:
           browser: electron
 

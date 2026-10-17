@@ -1,1 +1,18 @@
-node_modules/
+node_modules
+log
+results
+
+# cypress
+cypress/reports
+cypress/screenshots
+
+# env files
+cypress.env.json
+.env.production
+.env.test
+
+npm_install_debug.log
+
+.DS_Store
+
+browserstack.json

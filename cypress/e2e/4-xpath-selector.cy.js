@@ -2,7 +2,8 @@
 
 describe('adaptar os seletores para usar xpath', () => {
     it('deve validar cadastro em branco', () => {
-        cy.visit('https://automationexercise.com/');
+        cy.visit('/');
+        
         cy.xpath('//a[contains(@href, "login")]').click();
 
         cy.xpath('//input[@data-qa="signup-name"]').type('PGATS Aut');
