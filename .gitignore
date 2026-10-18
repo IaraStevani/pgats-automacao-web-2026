@@ -5,6 +5,8 @@ results
 # cypress
 cypress/reports
 cypress/screenshots
+cypress/videos
+cypress/downloads
 
 # env files
 cypress.env.json
